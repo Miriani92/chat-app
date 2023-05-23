@@ -1,8 +1,12 @@
+import { Fragment } from "react";
+import { GlobaStyles } from "./GlobalStyles.styled";
+import { Chat } from "./pages/Chat";
 function App() {
   return (
-    <div className="App">
-      <h1>Chat app</h1>
-    </div>
+    <Fragment>
+      <GlobaStyles />
+      <Chat />
+    </Fragment>
   );
 }
 
