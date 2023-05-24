@@ -1,7 +1,7 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { ChildrenProp } from "./Context.types";
 
-export const AuthContext = createContext({});
+const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }: ChildrenProp) => {
   return (
@@ -9,4 +9,8 @@ export const AuthProvider = ({ children }: ChildrenProp) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+export const useAuthCtx = () => {
+  return useContext(AuthContext);
 };

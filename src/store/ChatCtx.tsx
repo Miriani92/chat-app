@@ -1,7 +1,7 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { ChildrenProp } from "./Context.types";
 
-export const ChatContext = createContext({});
+const ChatContext = createContext({});
 
 export const ChatProvider = ({ children }: ChildrenProp) => {
   return (
@@ -9,4 +9,8 @@ export const ChatProvider = ({ children }: ChildrenProp) => {
       {children}
     </ChatContext.Provider>
   );
+};
+
+export const useChatCtx = () => {
+  return useContext(ChatContext);
 };
