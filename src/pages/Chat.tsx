@@ -9,7 +9,6 @@ export const Chat = () => {
   const { currentUser }: any = useAuthCtx();
   const RouteGuard = ({ children }: any) => {
     if (!currentUser) {
-      console.log(currentUser);
       return <Navigate to="login" />;
     }
     return children;

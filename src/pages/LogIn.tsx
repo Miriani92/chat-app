@@ -12,11 +12,8 @@ export const LogIn = () => {
   const navigate = useNavigate();
   const handleSignIn = async (e: any) => {
     e.preventDefault();
-    console.log("First", e.target);
     const email = e.target[0].value;
-    console.log("Second", e.target);
     const password = e.target[1].value;
-    console.log("third", e.target);
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       if (!res) {
