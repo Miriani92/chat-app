@@ -17,6 +17,7 @@ export const Input: React.FC<InputProp> = ({
 }) => {
   return (
     <Wrapper
+      required
       id={id}
       placeholder={placeHolder}
       $width={width}
