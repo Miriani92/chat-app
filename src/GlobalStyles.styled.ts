@@ -7,7 +7,7 @@ export const GlobaStyles = createGlobalStyle`
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
-    background-color:lavender;
+    background-color:#6ee7b7;
     display: flex;
     align-items: center;
     justify-content: center;

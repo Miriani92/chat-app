@@ -5,7 +5,7 @@ const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }: ChildrenProp) => {
   return (
-    <AuthContext.Provider value={{ val: "Hello" }}>
+    <AuthContext.Provider value={{ currentUser: undefined }}>
       {children}
     </AuthContext.Provider>
   );
