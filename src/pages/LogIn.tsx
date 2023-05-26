@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Wrapper } from "./SignUp.styled";
+import { Wrapper } from "./Login.styled";
 import { Input } from "../components/Input";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
@@ -14,11 +14,13 @@ export const LogIn = () => {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
+
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       if (!res) {
         setErr(true);
       }
+
       navigate("/");
     } catch (error) {
       setErr(true);

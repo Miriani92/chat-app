@@ -34,7 +34,6 @@ export const SignUp = () => {
 
       await uploadBytesResumable(avatarRef, image);
       const downloadUrl = await getDownloadURL(avatarRef);
-
       await updateProfile(userData.user, {
         displayName: name,
         photoURL: downloadUrl,
@@ -45,7 +44,7 @@ export const SignUp = () => {
         email,
         photoUrl: downloadUrl,
       });
-      await setDoc(doc(db, "userCahts", userData.user.uid), {});
+      await setDoc(doc(db, "userChats", userData.user.uid), {});
       setLoading(false);
       navigate("/");
     } catch (error) {
@@ -55,7 +54,8 @@ export const SignUp = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <Wrapper>
+      <Wrapper $loading={loading}>
+        {loading ? <h4 style={{ position: "absolute" }}>Loading...</h4> : null}
         <h3>Sign Up</h3>
         <Input width={200} height={30} placeHolder="Name" />
         <Input width={200} height={30} placeHolder="Email" />

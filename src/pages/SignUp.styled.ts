@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+type Prop = {
+  $loading: boolean;
+};
+export const Wrapper = styled.div<Prop>`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +14,8 @@ export const Wrapper = styled.div`
   background-color: #fafaf9;
   border-radius: 10px;
   gap: 8px;
+  /* background-color: ${({ $loading }) =>
+    $loading ? "rgba(0, 0, 0, 0.5)" : "#fafaf9"}; */
 `;
 export const Label = styled.label`
   width: 50px;

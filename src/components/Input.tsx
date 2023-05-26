@@ -6,6 +6,9 @@ type InputProp = {
   type?: string;
   placeHolder?: string;
   id?: string;
+  onChange?: (e: any) => void;
+  value?: string;
+  onKeyDown?: (e: any) => void;
 };
 
 export const Input: React.FC<InputProp> = ({
@@ -14,9 +17,15 @@ export const Input: React.FC<InputProp> = ({
   type,
   placeHolder,
   id,
+  onChange,
+  value,
+  onKeyDown,
 }) => {
   return (
     <Wrapper
+      onKeyDown={onKeyDown}
+      value={value}
+      onChange={onChange}
       required
       id={id}
       placeholder={placeHolder}
