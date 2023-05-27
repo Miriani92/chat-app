@@ -1,6 +1,6 @@
 import { useState, Fragment } from "react";
 import { db } from "../firebase";
-import { Input } from "../components/Input";
+import { Input } from "./Input";
 import {
   query,
   getDocs,
@@ -12,7 +12,9 @@ import {
   doc,
   serverTimestamp,
 } from "firebase/firestore";
+import { Wrapper } from "./Search.styled";
 import { useAuthCtx } from "../store/AuthCtx";
+import { Img } from "./NavBar.styles";
 
 export const Search = () => {
   const [err, setErr] = useState(false);
@@ -26,6 +28,7 @@ export const Search = () => {
     );
     const querySnapshot = await getDocs(usersDocRef);
     querySnapshot.forEach((doc) => {
+      console.log("USER:", doc.data());
       setUser(doc.data());
     });
   };
@@ -73,14 +76,15 @@ export const Search = () => {
       <Input
         onKeyDown={handleKeyDown}
         value={name}
-        width={200}
+        width={300}
         height={30}
         onChange={(e: any) => setName(e.target.value)}
       />
       {user ? (
-        <div onClick={handleSelectUser}>
+        <Wrapper onClick={handleSelectUser}>
+          <Img src={user.photoUrl} />
           <h4>{user.displaName}</h4>
-        </div>
+        </Wrapper>
       ) : null}
     </Fragment>
   );
