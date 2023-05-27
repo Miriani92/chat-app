@@ -1,6 +1,6 @@
 import { useState, Fragment } from "react";
-import { db } from "../firebase";
-import { Input } from "./Input";
+import { db } from "../../firebase";
+import { Input } from "../shared/Input";
 import {
   query,
   getDocs,
@@ -13,7 +13,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { Wrapper } from "./Search.styled";
-import { useAuthCtx } from "../store/AuthCtx";
+import { useAuthCtx } from "../../store/AuthCtx";
 import { Img } from "./NavBar.styles";
 
 export const Search = () => {

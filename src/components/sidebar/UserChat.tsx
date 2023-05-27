@@ -1,4 +1,4 @@
-import { useChatCtx } from "../store/ChatCtx";
+import { useChatCtx } from "../../store/ChatCtx";
 import { Wrapper } from "./UserChat.styled";
 import { Img } from "./NavBar.styles";
 

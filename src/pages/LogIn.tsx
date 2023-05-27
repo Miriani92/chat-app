@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Wrapper } from "./Login.styled";
-import { Input } from "../components/Input";
+import { Input } from "../components/shared/Input";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/Button";
+import { Button } from "../components/shared/Button";
 
 export const LogIn = () => {
   const [err, setErr] = useState(false);

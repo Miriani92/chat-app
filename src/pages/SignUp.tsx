@@ -4,10 +4,10 @@ import { db } from "../firebase";
 import { storage } from "../firebase";
 import { updateProfile, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { Input } from "../components/Input";
+import { Input } from "../components/shared/Input";
 import { Wrapper, Label } from "./SignUp.styled";
 import { AiFillFileAdd } from "react-icons/ai";
-import { Button } from "../components/Button";
+import { Button } from "../components/shared/Button";
 import { setDoc, doc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { onSnapshot, doc } from "firebase/firestore";
-import { useAuthCtx } from "../store/AuthCtx";
-import { db } from "../firebase";
+import { useAuthCtx } from "../../store/AuthCtx";
+import { db } from "../../firebase";
 import { Wrapper } from "./UserChats.styled";
 import { UserChat } from "./UserChat";
 

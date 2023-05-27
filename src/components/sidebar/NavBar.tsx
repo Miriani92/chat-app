@@ -1,10 +1,10 @@
 import { MouseEventHandler } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { Wrapper } from "./NavBar.styles";
 import { signOut } from "firebase/auth";
 import { Img } from "./NavBar.styles";
-import { useAuthCtx } from "../store/AuthCtx";
-import { Button } from "./Button";
+import { useAuthCtx } from "../../store/AuthCtx";
+import { Button } from "../shared/Button";
 
 export const NavBar = () => {
   const { currentUser }: any = useAuthCtx();
