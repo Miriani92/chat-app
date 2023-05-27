@@ -1,11 +1,12 @@
 import styled from "styled-components";
+
 export const Wrapper = styled.div`
-  width: 300px;
+  width: 500px;
   height: 600px;
   display: flex;
-  justify-content: start;
+  align-items: center;
+  justify-content: flex-start;
   flex-direction: column;
-  background-color: aliceblue;
-  background-color: red;
+  background-color: lightsalmon;
   border-radius: 20px;
 `;

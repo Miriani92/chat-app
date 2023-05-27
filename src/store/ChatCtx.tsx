@@ -6,7 +6,6 @@ const ChatContext = createContext({});
 
 export const ChatProvider = ({ children }: ChildrenProp) => {
   const [chatUser, setChatUser] = useState();
-  console.log("chatUser is:", chatUser);
   return (
     <ChatContext.Provider value={{ chatUser, setChatUser }}>
       {children}

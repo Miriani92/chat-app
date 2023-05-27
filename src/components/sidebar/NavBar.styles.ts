@@ -1,8 +1,8 @@
 import styled from "styled-components";
 export const Wrapper = styled.div`
+  margin-top: 20px;
   width: 100%;
   height: 50px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

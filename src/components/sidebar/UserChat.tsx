@@ -4,6 +4,7 @@ import { Img } from "./NavBar.styles";
 
 export const UserChat = (props: any) => {
   const { setChatUser }: any = useChatCtx();
+
   const { name, photoUrl } = props;
   const handleClickChatUser = () => {
     setChatUser(props);
