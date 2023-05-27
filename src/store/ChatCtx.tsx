@@ -1,13 +1,24 @@
 import { useState } from "react";
 import { createContext, useContext } from "react";
 import { ChildrenProp } from "./Context.types";
+import { useAuthCtx } from "./AuthCtx";
 
 const ChatContext = createContext({});
 
 export const ChatProvider = ({ children }: ChildrenProp) => {
-  const [chatUser, setChatUser] = useState();
+  const { currentUser }: any = useAuthCtx();
+  const [chatUser, setChatUser] = useState<any>("");
+  const [chatId] = useState(() => {
+    if (chatUser) {
+      const concatinatedId =
+        currentUser.uid > chatUser.uid
+          ? currentUser.uid + chatUser.uid
+          : chatUser.uid + currentUser.uid;
+      return concatinatedId;
+    }
+  });
   return (
-    <ChatContext.Provider value={{ chatUser, setChatUser }}>
+    <ChatContext.Provider value={{ chatUser, setChatUser, chatId }}>
       {children}
     </ChatContext.Provider>
   );
