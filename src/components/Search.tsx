@@ -78,6 +78,7 @@ export const Search = () => {
         value={name}
         width={300}
         height={30}
+        placeHolder="Search User"
         onChange={(e: any) => setName(e.target.value)}
       />
       {user ? (

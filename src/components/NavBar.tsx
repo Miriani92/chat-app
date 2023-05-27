@@ -1,15 +1,13 @@
-import React, { MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
 import { auth } from "../firebase";
 import { Wrapper } from "./NavBar.styles";
 import { signOut } from "firebase/auth";
 import { Img } from "./NavBar.styles";
 import { useAuthCtx } from "../store/AuthCtx";
 import { Button } from "./Button";
-import { Search } from "./Search";
 
 export const NavBar = () => {
   const { currentUser }: any = useAuthCtx();
-  console.log("cur", currentUser.photoURL);
 
   const handleSignOut: MouseEventHandler<HTMLButtonElement> = () => {
     signOut(auth);

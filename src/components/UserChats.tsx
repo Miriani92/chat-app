@@ -3,8 +3,7 @@ import { onSnapshot, doc } from "firebase/firestore";
 import { useAuthCtx } from "../store/AuthCtx";
 import { db } from "../firebase";
 import { Wrapper } from "./UserChats.styled";
-import { Chat } from "./Chat";
-import { Img } from "./NavBar.styles";
+import { UserChat } from "./UserChat";
 
 export const UserChats = () => {
   const [chats, setChats] = useState<any>();
@@ -13,7 +12,6 @@ export const UserChats = () => {
     const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
       setChats(doc.data());
     });
-    console.log(chats);
     return unsub;
   }, []);
 
@@ -23,9 +21,13 @@ export const UserChats = () => {
 
   return (
     <Wrapper>
-      {Object.entries(chats).map(([key, value]: any) => {
-        return <Chat {...value.userInfo} />;
-      })}
+      {chats ? (
+        Object.entries(chats).map(([key, value]: any) => {
+          return <UserChat key={value.userInfo.uid} {...value.userInfo} />;
+        })
+      ) : (
+        <h4>Loading...</h4>
+      )}
     </Wrapper>
   );
 };
