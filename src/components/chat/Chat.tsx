@@ -2,13 +2,13 @@ import { Wrapper } from "./Chat.styled";
 import { ChatUserNavbar } from "./ChatUserNavbar";
 import { useChatCtx } from "../../store/ChatCtx";
 import { ChatInput } from "./ChatInput";
-import { Fragment } from "react";
+import { ChatDisplay } from "./ChatDisplay";
 
 export const Chat = () => {
   const { chatUser }: any = useChatCtx();
 
   return (
-    <Fragment>
+    <Wrapper>
       {!chatUser ? (
         <h3
           style={{
@@ -24,9 +24,10 @@ export const Chat = () => {
       ) : (
         <Wrapper>
           <ChatUserNavbar chatUser={chatUser} />
+          <ChatDisplay />
           <ChatInput />
         </Wrapper>
       )}
-    </Fragment>
+    </Wrapper>
   );
 };

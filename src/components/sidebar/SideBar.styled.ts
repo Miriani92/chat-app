@@ -7,5 +7,5 @@ export const Wrapper = styled.div`
   flex-direction: column;
   background-color: aliceblue;
   background-color: red;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
 `;

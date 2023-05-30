@@ -9,5 +9,5 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   background-color: lightsalmon;
-  border-radius: 20px;
+  border-radius: 0 20px 0 0;
 `;
