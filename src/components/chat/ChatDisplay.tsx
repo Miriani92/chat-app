@@ -1,4 +1,9 @@
 import { Wrapper } from "./ChatDisplay.styled";
+import { Messages } from "./Messages";
 export const ChatDisplay = () => {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <Messages />
+    </Wrapper>
+  );
 };

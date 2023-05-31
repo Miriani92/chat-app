@@ -14,6 +14,7 @@ export const ChatInput = () => {
   const { currentUser }: any = useAuthCtx();
   const { chatUser }: any = useChatCtx();
   const { chatId }: any = useChatCtx();
+
   const handleSendMessage = async (e: any) => {
     e.preventDefault();
     const textMessage = e.target[0].value;
