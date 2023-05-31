@@ -20,7 +20,6 @@ export const LogIn = () => {
       if (!res) {
         setErr(true);
       }
-
       navigate("/");
     } catch (error) {
       setErr(true);
