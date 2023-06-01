@@ -41,11 +41,9 @@ export const ChatInput = () => {
           date: Timestamp.now(),
         }),
       });
-      console.log("HHHHH");
       await updateDoc(doc(db, "userChats", currentUser.uid), {
         [chatId + ".lastMessage"]: textMessage,
       });
-      console.log("HHHHH");
       await updateDoc(doc(db, "userChats", chatUser.uid), {
         [chatId + ".lastMessage"]: textMessage,
       });

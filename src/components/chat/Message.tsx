@@ -1,9 +1,12 @@
 import React from "react";
 import { Wrapper } from "./Message.styled";
-export const Message: React.FC<any> = ({ id, message, image, sender }) => {
+export const Message: React.FC<any> = ({ message }) => {
+  if (!message) {
+    return <h3>No messages</h3>;
+  }
   return (
     <Wrapper>
-      {/* {message ? <p>{message}</p> : <img src={image} />} */}
+      {message.message ? <p>{message.message}</p> : <img src={message.image} />}
     </Wrapper>
   );
 };

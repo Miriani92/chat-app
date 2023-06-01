@@ -9,17 +9,18 @@ import { onSnapshot } from "firebase/firestore";
 export const Messages = () => {
   const [messages, setMessages] = useState<any>([]);
   const { chatId }: any = useChatCtx();
+
   useEffect(() => {
-    //here we are getting undefined
     const unSub = onSnapshot(doc(db, "chats", chatId), (doc: any) => {
-      setMessages([...doc.data().messages]);
+      doc.exists() && setMessages([...doc.data().messages]);
     });
     return unSub;
   }, [chatId]);
+
   return (
     <Wrapper>
-      {messages.map((message: any) => {
-        return <Message key={message.id} {...message} />;
+      {messages.map((message: any, index: number) => {
+        return <Message message={message} key={index} />;
       })}
     </Wrapper>
   );
