@@ -18,12 +18,11 @@ export const UserChats = () => {
   if (!chats) {
     return <h4>No current chats</h4>;
   }
-
   return (
     <Wrapper>
       {chats ? (
-        Object.entries(chats).map(([key, value]: any) => {
-          return <UserChat key={value.userInfo.uid} {...value.userInfo} />;
+        Object.entries(chats).map(([key, value]: any, index: number) => {
+          return <UserChat key={index} {...value.userInfo} />;
         })
       ) : (
         <h4>Loading...</h4>

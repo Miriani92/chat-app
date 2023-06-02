@@ -21,6 +21,7 @@ export const Search = () => {
   const { currentUser }: any = useAuthCtx();
   const [name, setName] = useState("");
   const [user, setUser] = useState<any>();
+
   const handleSearchUser = async () => {
     const usersDocRef = query(
       collection(db, "users"),
@@ -28,7 +29,6 @@ export const Search = () => {
     );
     const querySnapshot = await getDocs(usersDocRef);
     querySnapshot.forEach((doc) => {
-      console.log("USER:", doc.data());
       setUser(doc.data());
     });
   };
@@ -41,6 +41,7 @@ export const Search = () => {
         currentUser.uid > user.uid
           ? currentUser.uid + user.uid
           : user.uid + currentUser.uid;
+
       const docRef = await getDoc(doc(db, "chats", concatinatedId));
 
       if (!docRef.exists()) {
@@ -57,16 +58,19 @@ export const Search = () => {
         await updateDoc(doc(db, "userChats", user.uid), {
           [concatinatedId + ".userInfo"]: {
             uid: currentUser.uid,
-            name: currentUser.displaName,
-            photoUrl: currentUser.photoUrl,
+            name: currentUser.displayName,
+            photoUrl: currentUser.photoURL,
             [concatinatedId + ".date"]: serverTimestamp(),
           },
         });
       }
+      setName("");
+      setUser(null);
     } catch (error) {
       setErr(true);
     }
   };
+
   if (err) {
     return <h3>Something went wrong try again</h3>;
   }

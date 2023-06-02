@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+type InputRef = {
+  innerRef?: any;
+};
 export const Wrapper = styled.form`
   position: absolute;
   width: 100%;
@@ -10,7 +13,7 @@ export const Wrapper = styled.form`
   background-color: lightcyan;
   bottom: 0;
 `;
-export const Input = styled.input`
+export const Input = styled.input<InputRef>`
   all: unset;
   margin-left: 20px;
   width: 200px;

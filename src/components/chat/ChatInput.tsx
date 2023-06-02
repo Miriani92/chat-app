@@ -10,7 +10,7 @@ import { useAuthCtx } from "../../store/AuthCtx";
 import { useChatCtx } from "../../store/ChatCtx";
 
 export const ChatInput = () => {
-  const inputRef: any = useRef("");
+  const inputRef: any = useRef(null);
   const { currentUser }: any = useAuthCtx();
   const { chatUser }: any = useChatCtx();
   const { chatId }: any = useChatCtx();
@@ -19,6 +19,7 @@ export const ChatInput = () => {
     e.preventDefault();
     const textMessage = e.target[0].value;
     const image = e.target[1].files[0];
+    inputRef.current.value = "";
     if (image) {
       const uniqueIdForImage = `${new Date().getTime()}${chatUser.email}`;
       const imageRef = ref(storage, uniqueIdForImage);
@@ -48,12 +49,11 @@ export const ChatInput = () => {
         [chatId + ".lastMessage"]: textMessage,
       });
     }
-    inputRef.current.value = "";
   };
   return (
     <Wrapper onSubmit={handleSendMessage}>
       <Input ref={inputRef} />
-      <input type="file" id="file" style={{ display: "none" }} ref={inputRef} />
+      <input type="file" id="file" style={{ display: "none" }} />
       <LeftSideWrapper>
         <label htmlFor="file">
           <IoMdAttach style={{ fontSize: 24 }} />
